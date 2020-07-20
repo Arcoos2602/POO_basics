@@ -34,6 +34,19 @@ class Event
     Time.now - @start_date < 30
   end
 
+  def age_analysis
+    age_array = []
+    average = 0
+    @attendees.each do |attendee|
+      age_array << attendee.age
+      average = average + attendee.age
+    end
+    average = average / @attendees.length
+    puts "Voici les âges des participants :"
+    puts age_array.join(", ")
+    puts "La moyenne d'âge est de #{average} ans"
+  end
+
   def to_s
     puts "< Titre : #{@title}"
     puts "< Date de début #{@start_date}"
